@@ -1,0 +1,40 @@
+Usuario
+   /proc/meminfo                        Memoria
+   /proc/swaps                          SWAPS
+   /proc/diskstats                      Actividad discos duros
+   /proc/partitions + pagetypeinfo      Info tamaño discos
+   /proc/stat                           info uso procesador
+   /proc/uptime                         Tiempo activo
+   /proc/version                        Version systema
+   /proc/pid/                           Info por programa
+   
+   
+CPUAgent
+MemoryAgent
+NetworkAgent
+ProcessesAgent
+   
+Carga del sistema
+   Historial de CPU
+      -> CPUAgent
+   Historial de memoria e intercambio
+      -> MemoryAgent
+   Historial de red
+      -> NetworkAgent
+      
+Tabla de procesos
+   -> ProcessesAgent
+   Nombre                                       Información extendida de proceso
+   Usuario                                      - Nombre        - Orden
+   CPU                          ----->          - PID
+   Memoria                                      - Padre
+   Memoria compartida                           - PID padre
+   Titulo de la ventana                         - Hilos
+   
+Monitor de red
+   Nombre
+   Vel. subida
+   Vel. bajada
+   
+   -> ProcessesAgent
+   -> NetworkAgent
