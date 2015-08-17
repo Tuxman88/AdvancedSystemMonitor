@@ -38,3 +38,122 @@ Monitor de red
    
    -> ProcessesAgent
    -> NetworkAgent
+   
+   
+SystemMonitorAgent
+   - Monitoriza el sistema cada X ms
+   - Obtiene toda la información del sistema que se podrá monitorizar
+   - Genera/actualiza las tablas de las cuales se alimentarán los demás agentes
+   - Componentes a actualizar: Información de procesos e Información de sistema
+   - Información por proceso:
+
+
+PROPIEDAD                       ARCHIVO         GRUPO
+--------------------------------------------------
+CommandLine                     cmdline         Identification
+LoginUID                        loginuid        Identification
+
+BytesReaded                     io              DiskIO
+BytesWriten                     io              DiskIO
+RealBytesReaded                 io              DiskIO
+RealBytesWriten                 io              DiskIO
+CancelledBytes                  io              DiskIO
+WriteCalls                      io              DiskIO
+ReadCalls                       io              DiskIO
+
+MemoryPages                     statm           Memory
+MemoryResident                  statm           Memory
+MemoryShared                    statm           Memory
+MemoryText                      statm           Memory
+MemoryLibrary                   statm           Memory
+MemoryData                      statm           Memory
+MemoryDirty                     statm           Memory
+
+BytesSent                       net/dev         BasicNetworking
+BytesReceived                   net/dev         BasicNetworking
+PacketsSent                     net/dev         BasicNetworking
+PacketsReceived                 net/dev         BasicNetworking
+ErrorsSending                   net/dev         BasicNetworking
+ErrorsReceiving                 net/dev         BasicNetworking
+DropedSending                   net/dev         BasicNetworking
+DropedReceived                  net/dev         BasicNetworking
+FIFOSent                        net/dev         BasicNetworking
+FIFOReceived                    net/dev         BasicNetworking
+FramesSent                      net/dev         BasicNetworking
+FramesReceived                  net/dev         BasicNetworking
+CompressedSent                  net/dev         BasicNetworking
+CmpressedReceived               net/dev         BasicNetworking
+MulticastSent                   net/dev         BasicNetworking
+MulticastReceived               net/dev         BasicNetworking
+IpV4Sockets                     net/sockstat    BasicNetworking
+IpV6Sockets                     net/sockstat6   BasicNetworking
+
+PID                             stat            Identification
+Command                         stat            Identification
+State                           stat            Identification
+ParentPID                       stat            Identification
+ProcessGroupID                  stat            Identification
+SessionID                       stat            Identification
+ControllingTerminal             stat            Identification
+ForegroundProcessGroupID        stat            Identification
+
+KernelFlags                     stat            ExtendedStatus
+MinorMemoryFaults               stat            ExtendedStatus
+MinorChildrenMemoryFauls        stat            ExtendedStatus
+MajorMemoryFaults               stat            ExtendedStatus
+MajorChildrenMemoryFaults       stat            ExtendedStatus
+UserTime                        stat            ExtendedStatus
+KernelTime                      stat            ExtendedStatus
+ChildrenUserTime                stat            ExtendedStatus
+ChildrenKernelTime              stat            ExtendedStatus
+Priority                        stat            ExtendedStatus
+NiceValue                       stat            ExtendedStatus
+NumberOfThreads                 stat            ExtendedStatus
+JiffiesTime                     stat            ExtendedStatus
+StartTime                       stat            ExtendedStatus
+VirtualMemorySize               stat            ExtendedStatus
+ResidentSetSize                 stat            ExtendedStatus
+CurrentSoftLimit                stat            ExtendedStatus
+StartCode                       stat            ExtendedStatus
+EndCode                         stat            ExtendedStatus
+StartStack                      stat            ExtendedStatus
+StackPointer                    stat            ExtendedStatus
+InstructionPointer              stat            ExtendedStatus
+PendingSignals                  stat            ExtendedStatus
+BlockedSignals                  stat            ExtendedStatus
+IgnoredSignals                  stat            ExtendedStatus
+CatchedSignals                  stat            ExtendedStatus
+WaitingChannel                  stat            ExtendedStatus
+PagesSwaped                     stat            ExtendedStatus
+ChildrenPagesSwaped             stat            ExtendedStatus
+ExitSignal                      stat            ExtendedStatus
+Processor                       stat            ExtendedStatus
+RealTimeSchedulingPriority      stat            ExtendedStatus
+SchedulingPolicy                stat            ExtendedStatus
+DelayInBlocks                   stat            ExtendedStatus
+GuestTime                       stat            ExtendedStatus
+ChildrenGuestTime               stat            ExtendedStatus
+StartData                       stat            ExtendedStatus
+EndData                         stat            ExtendedStatus
+StartExpansion                  stat            ExtendedStatus
+ArgumentsStart                  stat            ExtendedStatus
+ArgumentsEnd                    stat            ExtendedStatus
+EnvironmentStart                stat            ExtendedStatus
+EnvironmentEnd                  stat            ExtendedStatus
+ExitCode                        stat            ExtendedStatus
+
+FileSystem      ->      Archivos abiertos: Carpeta fd con ls -la
+                        INfo de archivos abiertos en fdinfo (con referencia al punto de montaje)
+
+ExtendedNetworking      ->      Conexiones realizadas con net/raw, net/tcp, net/tcp6, net/udp, net/udp6
+
+   - Información del sistema:
+
+BootCommandLine                 cmdline         
+Consoles                        consoles
+CPUInformation                  cpuinfo
+CPUUsage                        stat
+SystemDisksStatus               diskstats
+SystemDevices                   ioports
+MemoryInformation               meminfo
+Partitions                      partitions
