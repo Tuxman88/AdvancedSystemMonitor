@@ -39,6 +39,62 @@ Monitor de red
    -> ProcessesAgent
    -> NetworkAgent
    
+IdentificationAgent
+   - IdentificationAgent (PID)
+   - update
+   - getCommandLine
+   - getLoginUID
+   - getPID
+   - getCommand
+   - getState
+   - getParentPID
+   - getProcessGroupID
+   - getSessionID
+   - getControllingTerminal
+   - getForegroundProcessGroupID
+DiskAgent
+   - DiskAgent (PID)
+   - update
+   - getBytesRead
+   - getBytesWritten
+   - getRealBytesRead
+   - getRealBytesWritten
+   - getCancelledBytes
+   - getWriteCalls
+   - getReadCalls
+MemoryAgent
+   - MemoryAgent (PID)
+   - update
+   - getMemoryPages
+   - getMemoryResident
+   - getMemoryShared
+   - getMemoryText
+   - getMemoryLibrary
+   - getMemoryData
+   - getMemoryDirty
+NetworkAgent
+   - NetworkAgent (PID)
+   - update
+   - getBytesSent
+   - getBytesReceived
+   - getPacketsSent
+   - getPacketsReceived
+   - getErrorsSending
+   - getErrorsReceiving
+   - getDroppedPacketsSending
+   - getDroppedPacketsReceiving
+   - getFifoSent
+   - getFifoReceived
+   - getFramesSent
+   - getFramesReceived
+   - getCompressedPacketsSent
+   - getCompressedPacketsReceived
+   - getMulticastPacketsSent
+   - getMulticastPacketsReceived
+   - getIPv4Sockets
+   - getIPv6Sockets
+ExtendedAgent
+
    
 SystemMonitorAgent
    - Monitoriza el sistema cada X ms
