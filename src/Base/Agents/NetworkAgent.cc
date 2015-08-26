@@ -44,7 +44,7 @@ bool Base::NetworkAgent::update ( void )
    
    cleanInformation ();
    
-   file_contents = Base::CommandManager::runCommand ( load_command );
+   file_contents = runCommand ( load_command );
    
    if ( file_contents == "ERROR" )
       return ( false );

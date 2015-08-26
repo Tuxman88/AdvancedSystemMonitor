@@ -8,11 +8,11 @@ using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1421" );
+   Base::NetworkAgent network ( "1666" );
    
    int c = 0;
    
-   while ( c < 1000 )
+   while ( c < 100 )
    {
       network.update ();
       
