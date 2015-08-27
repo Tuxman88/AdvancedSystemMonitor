@@ -47,7 +47,10 @@ namespace Base
          
          bool update ( void );
          
-   private:
+         MemoryInformation* getMemoryInformation ( void );
+         
+      private:
+         MemoryInformation* mMemoryInformation;
    };
 }
 

@@ -3,18 +3,21 @@
 # include <cstdlib>
 
 # include "Base/Agents/NetworkAgent.hh"
+# include "Base/Agents/MemoryAgent.hh"
 
 using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1666" );
+   Base::NetworkAgent network ( "1719" );
+   Base::MemoryAgent memory ( "1719" );
    
    int c = 0;
    
-   while ( c < 100 )
+   while ( c < 1000 )
    {
       network.update ();
+      memory.update ();
       
       std::vector< std::string > interfaces;
       interfaces = network.getAvailableInterfaces ();
@@ -52,6 +55,14 @@ int main ()
          std::cout << "CarrierErrors:     " << info->OutputInfo.CarrierErrors << std::endl;
          std::cout << "Collitions:        " << info->OutputInfo.Collitions << std::endl << std::endl;
       }
+      
+      std::cout << "TotalProgramSize: " << memory.getMemoryInformation ()->TotalProgramSize << std::endl;
+      std::cout << "ResidentSetSize:  " << memory.getMemoryInformation ()->ResidentSetSize << std::endl;
+      std::cout << "SharedPages:      " << memory.getMemoryInformation ()->SharedPages << std::endl;
+      std::cout << "Text:             " << memory.getMemoryInformation ()->Text << std::endl;
+      std::cout << "Library:          " << memory.getMemoryInformation ()->Library << std::endl;
+      std::cout << "DataAndStack:     " << memory.getMemoryInformation ()->DataAndStack << std::endl;
+      std::cout << "DirtyPages:       " << memory.getMemoryInformation ()->DirtyPages << std::endl;
       
       system ( "sleep 0.1s" );
       
