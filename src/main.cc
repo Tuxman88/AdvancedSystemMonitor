@@ -5,14 +5,16 @@
 # include "Base/Agents/NetworkAgent.hh"
 # include "Base/Agents/MemoryAgent.hh"
 # include "Base/Agents/DiskAgent.hh"
+# include "Base/Agents/IdentificationAgent.hh"
 
 using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1623" );
-   Base::MemoryAgent memory ( "1623" );
-   Base::DiskAgent disk ( "1623" );
+   Base::NetworkAgent network ( "1568" );
+   Base::MemoryAgent memory ( "1568" );
+   Base::DiskAgent disk ( "1568" );
+   Base::IdentificationAgent identification ( "1568" );
    
    int c = 0;
    
@@ -21,6 +23,7 @@ int main ()
       network.update ();
       memory.update ();
       disk.update ();
+      identification.update ();
       
       std::vector< std::string > interfaces;
       interfaces = network.getAvailableInterfaces ();
@@ -75,6 +78,16 @@ int main ()
       std::cout << "Real Bytes Writen: " << disk.getDiskInformation ()->RealBytesWriten << std::endl;
       std::cout << "Cancelled Bytes:   " << disk.getDiskInformation ()->CancelledBytes << std::endl << std::endl;
       
+      std::cout << "Command line:                " << identification.getIdentificationInformation ()->CommandLine << std::endl;
+      std::cout << "Login UID:                   " << identification.getIdentificationInformation ()->LoginUID << std::endl;
+      std::cout << "PID:                         " << identification.getIdentificationInformation ()->PID << std::endl;
+      std::cout << "Command:                     " << identification.getIdentificationInformation ()->Command << std::endl;
+      std::cout << "State:                       " << identification.getIdentificationInformation ()->State << std::endl;
+      std::cout << "Parent PID:                  " << identification.getIdentificationInformation ()->ParentPID << std::endl;
+      std::cout << "Process group ID:            " << identification.getIdentificationInformation ()->ProcessGroupID << std::endl;
+      std::cout << "Session ID:                  " << identification.getIdentificationInformation ()->SessionID << std::endl;
+      std::cout << "Controlling Terminal:        " << identification.getIdentificationInformation ()->ControllingTerminal << std::endl;
+      std::cout << "Foreground process group ID: " << identification.getIdentificationInformation ()->ForegroundProcessGroupID << std::endl << std::endl;
       
       system ( "sleep 0.1s" );
       

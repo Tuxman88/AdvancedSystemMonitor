@@ -77,3 +77,14 @@ std::string Base::Agent::toUpperCase ( std::string string_to_change )
    
    return ( string_to_change );
 }
+
+long unsigned int Base::Agent::toULInt ( std::string string_to_convert )
+{
+   unsigned long int result = 0;
+   
+   std::istringstream iss ( string_to_convert );
+   
+   iss >> result;
+   
+   return ( result );
+}

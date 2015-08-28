@@ -25,6 +25,7 @@ namespace Base
          std::vector< std::string > splitString ( std::string string_to_split , const std::string& separator_string );
          std::string                trimString  ( std::string string_to_trim );
          std::string                toUpperCase ( std::string string_to_change );
+         unsigned long int          toULInt     ( std::string string_to_convert );
          
       protected:
          std::string mMonitoringFolder;
