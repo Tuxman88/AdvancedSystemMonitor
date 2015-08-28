@@ -4,13 +4,15 @@
 
 # include "Base/Agents/NetworkAgent.hh"
 # include "Base/Agents/MemoryAgent.hh"
+# include "Base/Agents/DiskAgent.hh"
 
 using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1719" );
-   Base::MemoryAgent memory ( "1719" );
+   Base::NetworkAgent network ( "1623" );
+   Base::MemoryAgent memory ( "1623" );
+   Base::DiskAgent disk ( "1623" );
    
    int c = 0;
    
@@ -18,6 +20,7 @@ int main ()
    {
       network.update ();
       memory.update ();
+      disk.update ();
       
       std::vector< std::string > interfaces;
       interfaces = network.getAvailableInterfaces ();
@@ -62,7 +65,16 @@ int main ()
       std::cout << "Text:             " << memory.getMemoryInformation ()->Text << std::endl;
       std::cout << "Library:          " << memory.getMemoryInformation ()->Library << std::endl;
       std::cout << "DataAndStack:     " << memory.getMemoryInformation ()->DataAndStack << std::endl;
-      std::cout << "DirtyPages:       " << memory.getMemoryInformation ()->DirtyPages << std::endl;
+      std::cout << "DirtyPages:       " << memory.getMemoryInformation ()->DirtyPages << std::endl << std::endl;
+      
+      std::cout << "Bytes Read:        " << disk.getDiskInformation ()->BytesRead << std::endl;
+      std::cout << "Bytes Writen:      " << disk.getDiskInformation ()->BytesWriten << std::endl;
+      std::cout << "Read Calls:        " << disk.getDiskInformation ()->ReadCalls << std::endl;
+      std::cout << "Write Calls:       " << disk.getDiskInformation ()->WriteCalls << std::endl;
+      std::cout << "Real Bytes Read:   " << disk.getDiskInformation ()->RealBytesRead << std::endl;
+      std::cout << "Real Bytes Writen: " << disk.getDiskInformation ()->RealBytesWriten << std::endl;
+      std::cout << "Cancelled Bytes:   " << disk.getDiskInformation ()->CancelledBytes << std::endl << std::endl;
+      
       
       system ( "sleep 0.1s" );
       

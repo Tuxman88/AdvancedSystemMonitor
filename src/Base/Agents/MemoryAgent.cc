@@ -8,6 +8,7 @@ Base::MemoryAgent::MemoryAgent ( std::string monitoring_folder )
 
 Base::MemoryAgent::~MemoryAgent ( void )
 {
+   delete mMemoryInformation;
 }
 
 bool Base::MemoryAgent::update ( void )
