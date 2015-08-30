@@ -123,6 +123,9 @@ namespace Base
          ExtendedInformation* getIdentificationInformation ( void );
          
       private:
+         void storeValue ( std::string value , unsigned int position );
+         
+      private:
          ExtendedInformation* mExtendedInformation;
    };
 }

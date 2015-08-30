@@ -6,15 +6,17 @@
 # include "Base/Agents/MemoryAgent.hh"
 # include "Base/Agents/DiskAgent.hh"
 # include "Base/Agents/IdentificationAgent.hh"
+# include "Base/Agents/ExtendedAgent.hh"
 
 using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1568" );
-   Base::MemoryAgent memory ( "1568" );
-   Base::DiskAgent disk ( "1568" );
-   Base::IdentificationAgent identification ( "1568" );
+   Base::NetworkAgent network ( "1221" );
+   Base::MemoryAgent memory ( "1221" );
+   Base::DiskAgent disk ( "1221" );
+   Base::IdentificationAgent identification ( "1221" );
+   Base::ExtendedAgent extended ( "1221" );
    
    int c = 0;
    
@@ -24,6 +26,7 @@ int main ()
       memory.update ();
       disk.update ();
       identification.update ();
+      extended.update ();
       
       std::vector< std::string > interfaces;
       interfaces = network.getAvailableInterfaces ();
@@ -88,6 +91,51 @@ int main ()
       std::cout << "Session ID:                  " << identification.getIdentificationInformation ()->SessionID << std::endl;
       std::cout << "Controlling Terminal:        " << identification.getIdentificationInformation ()->ControllingTerminal << std::endl;
       std::cout << "Foreground process group ID: " << identification.getIdentificationInformation ()->ForegroundProcessGroupID << std::endl << std::endl;
+      
+      std::cout << "Kernel flags:                  " << extended.getIdentificationInformation ()->KernelFlags << std::endl;
+      std::cout << "Minor memory faults:           " << extended.getIdentificationInformation ()->MinorMemoryFaults << std::endl;
+      std::cout << "Minor children memory faults:  " << extended.getIdentificationInformation ()->MinorChildrenMemoryFaults << std::endl;
+      std::cout << "Major memory faults:           " << extended.getIdentificationInformation ()->MajorMemoryFaults << std::endl;
+      std::cout << "Major children memory faults:  " << extended.getIdentificationInformation ()->MajorChildrenMemoryFaults << std::endl;
+      std::cout << "User time:                     " << extended.getIdentificationInformation ()->UserTime << std::endl;
+      std::cout << "Kernel time:                   " << extended.getIdentificationInformation ()->KernelTime << std::endl;
+      std::cout << "Children user time:            " << extended.getIdentificationInformation ()->ChildrenUserTime << std::endl;
+      std::cout << "Children kernel time:          " << extended.getIdentificationInformation ()->ChildrenKernelTime << std::endl;
+      std::cout << "Priority:                      " << extended.getIdentificationInformation ()->Priority << std::endl;
+      std::cout << "Nice value:                    " << extended.getIdentificationInformation ()->NiceValue << std::endl;
+      std::cout << "Number of threads:             " << extended.getIdentificationInformation ()->NumberOfThreads << std::endl;
+      std::cout << "Jiffies time:                  " << extended.getIdentificationInformation ()->JiffiesTime << std::endl;
+      std::cout << "Start time:                    " << extended.getIdentificationInformation ()->StartTime << std::endl;
+      std::cout << "Virtual memory size:           " << extended.getIdentificationInformation ()->VirtualMemorySize << std::endl;
+      std::cout << "Resident set size:             " << extended.getIdentificationInformation ()->ResidentMemorySetSize << std::endl;
+      std::cout << "Current soft limit:            " << extended.getIdentificationInformation ()->CurrentSoftLimit << std::endl;
+      std::cout << "Start code:                    " << extended.getIdentificationInformation ()->StartCode << std::endl;
+      std::cout << "End code:                      " << extended.getIdentificationInformation ()->EndCode << std::endl;
+      std::cout << "Start stack:                   " << extended.getIdentificationInformation ()->StartStack << std::endl;
+      std::cout << "Stack pointer:                 " << extended.getIdentificationInformation ()->StackPointer << std::endl;
+      std::cout << "Instruction pointer:           " << extended.getIdentificationInformation ()->InstructionPointer << std::endl;
+      std::cout << "Pending signals:               " << extended.getIdentificationInformation ()->PendingSignals << std::endl;
+      std::cout << "Blocked signals:               " << extended.getIdentificationInformation ()->BlockedSignals << std::endl;
+      std::cout << "Ignored signals:               " << extended.getIdentificationInformation ()->IgnoredSignals << std::endl;
+      std::cout << "Catched signals:               " << extended.getIdentificationInformation ()->CatchedSignals << std::endl;
+      std::cout << "Waiting signals:               " << extended.getIdentificationInformation ()->WaitingSignals << std::endl;
+      std::cout << "Pages swaped:                  " << extended.getIdentificationInformation ()->PagesSwaped << std::endl;
+      std::cout << "Children pages swaped:         " << extended.getIdentificationInformation ()->ChildrenPagesSwaped << std::endl;
+      std::cout << "Exit signal:                   " << extended.getIdentificationInformation ()->ExitSignal << std::endl;
+      std::cout << "Processor:                     " << extended.getIdentificationInformation ()->Processor << std::endl;
+      std::cout << "Real time scheduling priority: " << extended.getIdentificationInformation ()->RealTimeSchedulingPriority << std::endl;
+      std::cout << "Scheduling policy:             " << extended.getIdentificationInformation ()->SchedulingPolicy << std::endl;
+      std::cout << "Delay in blocks:               " << extended.getIdentificationInformation ()->DelayInBlocks << std::endl;
+      std::cout << "Guest time:                    " << extended.getIdentificationInformation ()->GuestTime << std::endl;
+      std::cout << "Children guest time:           " << extended.getIdentificationInformation ()->ChildrenGuestTime << std::endl;
+      std::cout << "Start data:                    " << extended.getIdentificationInformation ()->StartData << std::endl;
+      std::cout << "End data:                      " << extended.getIdentificationInformation ()->EndData << std::endl;
+      std::cout << "Start expansion:               " << extended.getIdentificationInformation ()->StartExpansion << std::endl;
+      std::cout << "Arguments start:               " << extended.getIdentificationInformation ()->ArgumentsStart << std::endl;
+      std::cout << "Arguments end:                 " << extended.getIdentificationInformation ()->ArgumentsEnd << std::endl;
+      std::cout << "Environment start:             " << extended.getIdentificationInformation ()->EnvironmentStart << std::endl;
+      std::cout << "Environment end:               " << extended.getIdentificationInformation ()->EnvironmentEnd << std::endl;
+      std::cout << "Exit code:                     " << extended.getIdentificationInformation ()->ExitCode << std::endl;
       
       system ( "sleep 0.1s" );
       

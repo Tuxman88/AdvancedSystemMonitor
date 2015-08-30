@@ -5,4 +5,5 @@ g++ -c src/Base/Agents/NetworkAgent.cc -o NetworkAgent.o -std=c++11 -Wall -Werro
 g++ -c src/Base/Agents/MemoryAgent.cc -o MemoryAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
 g++ -c src/Base/Agents/DiskAgent.cc -o DiskAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
 g++ -c src/Base/Agents/IdentificationAgent.cc -o IdentificationAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
-g++ src/main.cc -o main Agent.o NetworkAgent.o MemoryAgent.o DiskAgent.o IdentificationAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
+g++ -c src/Base/Agents/ExtendedAgent.cc -o ExtendedAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
+g++ src/main.cc -o main Agent.o NetworkAgent.o MemoryAgent.o DiskAgent.o IdentificationAgent.o ExtendedAgent.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi

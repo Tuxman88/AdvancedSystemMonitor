@@ -9,8 +9,6 @@
 # include <cstdio>
 # include <cstring>
 
-# include "../CommandManager.hh"
-
 namespace Base
 {
    class Agent

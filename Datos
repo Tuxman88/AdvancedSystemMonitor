@@ -173,7 +173,7 @@ CurrentSoftLimit                stat            ExtendedStatus
 StartCode                       stat            ExtendedStatus
 EndCode                         stat            ExtendedStatus
 StartStack                      stat            ExtendedStatus
-StackPointer                    stat            ExtendedStatus
+StackPointer                    stat            ExtendedStatus 
 InstructionPointer              stat            ExtendedStatus
 PendingSignals                  stat            ExtendedStatus
 BlockedSignals                  stat            ExtendedStatus
