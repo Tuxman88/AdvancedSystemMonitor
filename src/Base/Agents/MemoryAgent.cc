@@ -3,7 +3,7 @@
 Base::MemoryAgent::MemoryAgent ( std::string monitoring_folder )
    : Agent ( monitoring_folder )
 {
-   mMemoryInformation = new MemoryInformation;
+   mMemoryInformation = new Base::DataTypes::MemoryInformation;
 }
 
 Base::MemoryAgent::~MemoryAgent ( void )
@@ -41,18 +41,12 @@ bool Base::MemoryAgent::update ( void )
    
    std::istringstream iss ( file_contents );
    
-   iss >> mMemoryInformation->TotalProgramSize;
-   iss >> mMemoryInformation->ResidentSetSize;
-   iss >> mMemoryInformation->SharedPages;
-   iss >> mMemoryInformation->Text;
-   iss >> mMemoryInformation->Library;
-   iss >> mMemoryInformation->DataAndStack;
-   iss >> mMemoryInformation->DirtyPages;
+   iss >> (*mMemoryInformation);
    
    return ( true );
 }
 
-Base::MemoryAgent::MemoryInformation* Base::MemoryAgent::getMemoryInformation(void)
+Base::DataTypes::MemoryInformation* Base::MemoryAgent::getMemoryInformation(void)
 {
    return ( mMemoryInformation );
 }

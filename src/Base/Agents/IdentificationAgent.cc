@@ -3,7 +3,7 @@
 Base::IdentificationAgent::IdentificationAgent ( std::string monitoring_folder )
    : Agent ( monitoring_folder )
 {
-   mIdentificationInformation = new IdentificationInformation;
+   mIdentificationInformation = new Base::DataTypes::IdentificationInformation;
 }
 
 Base::IdentificationAgent::~IdentificationAgent ( void )
@@ -36,7 +36,7 @@ bool Base::IdentificationAgent::update ( void )
    return ( true );
 }
 
-Base::IdentificationAgent::IdentificationInformation* Base::IdentificationAgent::getIdentificationInformation ( void )
+Base::DataTypes::IdentificationInformation* Base::IdentificationAgent::getIdentificationInformation ( void )
 {
    return ( mIdentificationInformation );
 }
