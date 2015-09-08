@@ -16,5 +16,7 @@ g++ -c src/Base/DataTypes/OptionalField.cc -o OptionalField.o -std=c++11 -Wall -
 g++ -c src/Base/DataTypes/DiskInformation.cc -o DiskInformation.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
 g++ -c src/Base/DataTypes/IdentificationInformation.cc -o IdentificationInformation.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
 g++ -c src/Base/DataTypes/MemoryInformation.cc -o MemoryInformation.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
+g++ -c src/Base/DataTypes/InterfaceInformation.cc -o InterfaceInformation.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
+g++ -c src/Base/DataTypes/NetworkStatistics.cc -o NetworkStatistics.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
 
-g++ src/main.cc -o main Agent.o NetworkAgent.o MemoryAgent.o DiskAgent.o IdentificationAgent.o ExtendedAgent.o FileSystemAgent.o ExtendedInformation.o FileInformation.o MountInformation.o MountType.o OptionalField.o DiskInformation.o IdentificationInformation.o MemoryInformation.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi
+g++ src/main.cc -o main Agent.o NetworkAgent.o MemoryAgent.o DiskAgent.o IdentificationAgent.o ExtendedAgent.o FileSystemAgent.o ExtendedInformation.o FileInformation.o MountInformation.o MountType.o OptionalField.o DiskInformation.o IdentificationInformation.o MemoryInformation.o InterfaceInformation.o NetworkStatistics.o -std=c++11 -Wall -Werror -Wextra -pedantic -ansi

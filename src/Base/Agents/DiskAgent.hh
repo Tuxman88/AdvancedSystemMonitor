@@ -12,8 +12,8 @@ namespace Base
    class DiskAgent : public Base::Agent
    {
       public:         
-         DiskAgent ( std::string monitoring_folder );
-         ~DiskAgent ( void );
+         explicit DiskAgent ( std::string monitoring_folder );
+         virtual ~DiskAgent ( void );
          
          bool update ( void );
          

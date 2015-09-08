@@ -5,6 +5,10 @@ Base::Agent::Agent ( std::string monitoring_folder )
 {
 }
 
+Base::Agent::~Agent ( void )
+{
+}
+
 std::string Base::Agent::runCommand ( std::string command_to_run )
 {
    FILE* pipe = popen ( command_to_run.c_str (), "r" );
@@ -87,4 +91,13 @@ long unsigned int Base::Agent::toULInt ( std::string string_to_convert )
    iss >> result;
    
    return ( result );
+}
+
+std::string Base::Agent::ULIntToString ( const long unsigned int& value_to_convert )
+{
+   std::ostringstream oss;
+   
+   oss << value_to_convert;
+   
+   return ( oss.str () );
 }

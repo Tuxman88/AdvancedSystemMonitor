@@ -13,8 +13,8 @@ namespace Base
    class MemoryAgent : public Agent
    {
       public:
-         MemoryAgent ( std::string monitoring_folder );
-         ~MemoryAgent ( void );
+         explicit MemoryAgent ( std::string monitoring_folder );
+         virtual ~MemoryAgent ( void );
          
          bool update ( void );
          

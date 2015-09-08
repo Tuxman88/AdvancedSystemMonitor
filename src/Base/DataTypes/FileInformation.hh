@@ -12,7 +12,7 @@ namespace Base
    {
       struct t_FileInformation
       {
-         t_FileInformation ( void );         
+         t_FileInformation  ( void );
          ~t_FileInformation ( void );
          
          void reset ( void );

@@ -12,8 +12,8 @@ namespace Base
    class ExtendedAgent : public Base::Agent
    {
       public:
-         ExtendedAgent ( std::string monitoring_folder );
-         ~ExtendedAgent ( void );
+         explicit ExtendedAgent ( std::string monitoring_folder );
+         virtual ~ExtendedAgent ( void );
          
          bool update ( void );
          

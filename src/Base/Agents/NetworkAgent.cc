@@ -95,14 +95,14 @@ void Base::NetworkAgent::processLineOfData ( std::string& input_line )
    std::istringstream iss ( input_line );
    std::string interface_name;
    unsigned long int value;
-   InterfaceInformation* new_information;
+   Base::DataTypes::InterfaceInformation* new_information;
    
    iss >> interface_name;
    
    if ( !interface_name.empty () )
       interface_name.substr ( 0 , interface_name.size () - 2 ); // Remove the last character
     
-   new_information = new (std::nothrow) InterfaceInformation ();
+   new_information = new (std::nothrow) Base::DataTypes::InterfaceInformation;
    
    if ( new_information == 0 ) // If I can't make a new component, stop
       return;
@@ -131,7 +131,7 @@ void Base::NetworkAgent::storeValue ( const Base::NetworkAgent::ColumnContents& 
 {
    // Get the pointer to the data
    std::string name = mAvailableInterfaces[ mAvailableInterfaces.size () - 1 ];
-   InterfaceInformation* information = mInterfaceInformationMap[ name ];
+   Base::DataTypes::InterfaceInformation* information = mInterfaceInformationMap[ name ];
    
    // Input or output?
    if ( column_type == Input )
@@ -142,7 +142,7 @@ void Base::NetworkAgent::storeValue ( const Base::NetworkAgent::ColumnContents& 
    return;
 }
 
-void Base::NetworkAgent::storeValue ( NetworkStatistics& statistics , const std::string& column_data , const long unsigned int& value )
+void Base::NetworkAgent::storeValue ( Base::DataTypes::NetworkStatistics& statistics , const std::string& column_data , const long unsigned int& value )
 {   
    if ( column_data == "PACKETS" )
       statistics.Packets = value;
@@ -226,7 +226,7 @@ std::vector< std::string > Base::NetworkAgent::getAvailableInterfaces ( void )
    return ( mAvailableInterfaces );
 }
 
-Base::NetworkAgent::InterfaceInformation* Base::NetworkAgent::getInterfaceInformation ( std::string interface_name )
+Base::DataTypes::InterfaceInformation* Base::NetworkAgent::getInterfaceInformation ( std::string interface_name )
 {
    bool found_interface = false;
    

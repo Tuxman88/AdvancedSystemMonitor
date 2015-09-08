@@ -7,16 +7,18 @@
 # include "Base/Agents/DiskAgent.hh"
 # include "Base/Agents/IdentificationAgent.hh"
 # include "Base/Agents/ExtendedAgent.hh"
+# include "Base/Agents/FileSystemAgent.hh"
 
 using namespace std;
 
 int main ()
 {
-   Base::NetworkAgent network ( "1221" );
-   Base::MemoryAgent memory ( "1221" );
-   Base::DiskAgent disk ( "1221" );
-   Base::IdentificationAgent identification ( "1221" );
-   Base::ExtendedAgent extended ( "1221" );
+   Base::NetworkAgent network ( "1619" );
+   Base::MemoryAgent memory ( "1619" );
+   Base::DiskAgent disk ( "1619" );
+   Base::IdentificationAgent identification ( "1619" );
+   Base::ExtendedAgent extended ( "1619" );
+   Base::FileSystemAgent fs ( "1619" );
    
    int c = 0;
    
@@ -27,7 +29,8 @@ int main ()
       disk.update ();
       identification.update ();
       extended.update ();
-      
+      fs.update ();
+      /*
       std::vector< std::string > interfaces;
       interfaces = network.getAvailableInterfaces ();
       
@@ -135,7 +138,15 @@ int main ()
       std::cout << "Arguments end:                 " << extended.getIdentificationInformation ()->ArgumentsEnd << std::endl;
       std::cout << "Environment start:             " << extended.getIdentificationInformation ()->EnvironmentStart << std::endl;
       std::cout << "Environment end:               " << extended.getIdentificationInformation ()->EnvironmentEnd << std::endl;
-      std::cout << "Exit code:                     " << extended.getIdentificationInformation ()->ExitCode << std::endl;
+      std::cout << "Exit code:                     " << extended.getIdentificationInformation ()->ExitCode << std::endl << std::endl;
+      */
+      
+      for ( unsigned int i = 0; i < fs.getFilesInformation ()->size (); i++ )
+      {
+         std::cout << "File (" << fs.getFilesInformation ()->operator[] ( i )->FileDescriptorID 
+                   << "): " << fs.getFilesInformation ()->operator[] ( i )->FilePath
+                   << std::endl;
+      }
       
       system ( "sleep 0.1s" );
       

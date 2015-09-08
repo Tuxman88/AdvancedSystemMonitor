@@ -12,8 +12,8 @@ namespace Base
    class IdentificationAgent : public Base::Agent
    {
       public:
-         IdentificationAgent ( std::string monitoring_folder );
-         ~IdentificationAgent ( void );
+         explicit IdentificationAgent ( std::string monitoring_folder );
+         virtual ~IdentificationAgent ( void );
          
          bool update ( void );
          
@@ -21,8 +21,8 @@ namespace Base
          
       private:
          bool loadCommandLine ( void );
-         bool loadLoginUID ( void );
-         bool loadStat ( void );
+         bool loadLoginUID    ( void );
+         bool loadStat        ( void );
          
       private:
          Base::DataTypes::IdentificationInformation* mIdentificationInformation;
